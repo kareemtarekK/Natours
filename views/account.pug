@@ -1,0 +1,56 @@
+extends base
+
+mixin setItem(status , attribute , icon , text)
+    li(class=`${(status === true)? 'active move' : ''}`)
+        a(href=`/${attribute}` class=`${attribute}`)
+            i.fa-solid(class=`${icon}`)
+            | #{text}
+
+block content
+    .account_content
+        .content_details
+            .content_left
+                    ul.normal_user
+                        +setItem(true , 'setting' , 'fa-gear' , 'SETTINGS')
+                        +setItem(false , 'bookings' , 'fa-bag-shopping' , 'MY BOOKINGS')
+                        +setItem(false , 'reviews' , 'fa-star' , 'MY REVIEWS')
+                        +setItem(false , 'billing' , 'fa-credit-card' , 'BILLING')
+                    if(user.role === 'admin')
+                        p.admin ADMIN
+                        ul.admin_user
+                            +setItem(true , 'manage' , 'fa-pen-to-square' , 'MANAGE TOURS')
+                            +setItem(false , 'users' , 'fa-user' , 'MANAGE USERS')
+                            +setItem(false , 'reviews' , 'fa-star' , 'MANAGE REVIEWS')
+                            +setItem(false , 'bookings' , 'fa-bag-shopping' , 'MANAGE BOOKINGS')
+            .content_right
+                //- form.right_details(action='/submited-user-form' method='POST' enctype='multipart/form-data')
+                form.right_details   
+                    h1.account_heading YOUR ACCOUNT SETTINGS
+                    label.name(for='name') Name
+                    input#name(type='text' name='name' value=`${user.name}`)
+                    br
+                    br
+                    label.email(for='email') Email
+                    input#email(type='email' name='email' value=`${user.email}`)
+                    .photo_control
+                        img(src=`/img/users/${user.photo}` alt='user-photo')
+                        input(type='file' name='photo' id='photo' accept='image/*')
+                        label(for='photo') CHOOSE YOUR PHOTO
+                    button.settings(type='submit') SAVE SETTINGS
+                    br
+                    br
+                    br
+                    br
+                    br 
+                hr.line
+                form.password_change
+                    h1.password CHANGE PASSWORD
+                    label(for='current_password' class='current_password') Current Password
+                    input(type='password' name='current_password' id='current_password' placeholder='●●●●●●●●')
+                    label(for='new_password' class='new_password') New Password
+                    input(type='password' name='new_pasword' id='new_pasword' placeholder='●●●●●●●●')
+                    label(for='confirm_password' class='confirm_password') Confirm Password
+                    input(type='password' name='confirm_password' id='confirm_password' placeholder='●●●●●●●●')
+                    button.save_password(type='submit') SAVE PASSWORD
+
+

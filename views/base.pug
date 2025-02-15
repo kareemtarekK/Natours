@@ -1,0 +1,43 @@
+doctype html
+html
+    head
+        block head
+            meta( charset='utf-8')
+            meta( name='viewport' content='width=device-width, initial-scale=1.0')
+            // ICONS
+            link( rel='stylesheet' href='/css/all.min.css')
+            link( rel='stylesheet' href='/css/style.css')
+            // GOOGLE FONTS
+            link( rel='preconnect' href='https://fonts.googleapis.com')
+            link( rel='preconnect' href='https://fonts.gstatic.com' crossorigin)
+            link( rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Rethink+Sans:ital,wght@0,400..800;1,400..800&display=swap')
+            // TITLE ICON
+            link( rel='shortcut icon' type='image/png' href='/img/favicon.png')
+            title Natours | #{title}
+
+
+
+    body
+        // HEADER
+        include _header
+
+        // CONTENT
+        block content
+            h1 hello from homepage
+
+
+        // FOOTER
+        include _footer
+        script(src='https://js.stripe.com/v3/')
+        script(src='/js/bundler.js')   
+        
+
+
+   
+
+
+
+
+
+
+

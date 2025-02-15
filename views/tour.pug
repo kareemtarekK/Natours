@@ -1,0 +1,74 @@
+extends base
+
+block append head
+    script(src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js' , crossorigin)
+    link(href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' , crossorigin)
+    
+
+include _mixin
+
+block content
+    .section__header
+        .overlay
+        img(src='/img/1.jpg' alt='section logo')
+        .header__details
+            h1
+                span.section__header--heading= tour.name
+            .section__header--info
+                .info__one
+                    i.fa-regular.fa-clock
+                    p.days #{tour.duration} days
+                .info__two
+                    i.fa-solid.fa-location-dot
+                    p.locations= tour.startLocation.description
+
+    .adoutTour
+        .guides
+            h1.guides__heading Quick facts
+            +guideRow
+            .tour__guides
+                h1 Your tour guides
+                each guide in tour.guides
+                    .guide__row
+                        img(src=`/img/users/${guide.photo}` alt='photo guide')
+                        - if(guide.role === 'lead-guide')
+                            span.description LEAD GUIDE
+                        - else
+                            span.description TOUR GUIDE     
+                        span.information= guide.name
+        .info
+            h1.info__heading About #{tour.name} tour
+            .info__content
+                - const paragraphs = tour.description.split('\n');
+                each p in paragraphs
+                    p= p
+
+    .section__img
+        each img in tour.images
+            .img
+                img(src=`/img/tours/${img}` alt='img')
+
+
+    #map(data-locations=`${JSON.stringify(tour.locations)}`)
+        
+
+    .section__reviews
+        .content
+            each review in tour.reviews
+                +cardReview(review)
+
+
+    .section__booking
+        .content
+            .section__booking__img
+                .natour
+                    img.first(src='/img/logo-white.png' alt='natour logo')
+                img.second(src=`/img/tours/${tour.images[1]}` alt='tour image')
+                img.third(src=`/img/tours/${tour.images[2]}` alt='tour image')
+            .section__heading
+                p.telling What are you waiting for?
+                p.details #{tour.duration} days. 1 adventure. Infinite memories. Make it yours today!
+            if(user)
+                button.book__tour(data-tour-id=`${tour.id}`) BOOK TOUR
+            else
+                a.book__tour(href='/login') LOG IN TO BOOK TOUR

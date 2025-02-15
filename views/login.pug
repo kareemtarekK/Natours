@@ -1,0 +1,13 @@
+extends base
+
+block content
+    .form
+        form.form__content
+            .heading LOG INTO YOUR ACCOUNT
+            .email 
+                label(for='email') Email address
+                input(type='email' placeholder='you@example.com' id='email' required)
+            .password
+                label(for='password') Password
+                input(type='password' placeholder='●●●●●●●●' id='password' required minlength='8')
+            input(type='submit' value='LOGIN')

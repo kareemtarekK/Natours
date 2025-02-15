@@ -1,0 +1,31 @@
+
+mixin guideRow
+    .guide__row
+        i.fa-solid.fa-calendar
+        span.description Next date
+        - const v = tour.startDates[0].toLocaleString('en-us' , {month: 'long'  , year: 'numeric'});
+        span.information= v
+    .guide__row
+        i.fa-solid.fa-arrow-trend-up
+        span.description Difficulty
+        span.information= tour.difficulty
+    .guide__row
+        i.fa-solid.fa-user
+        span.description Participants
+        span.information= `${tour.maxGroupSize} People`
+    .guide__row 
+        i.fa-regular.fa-star
+        span.description Rating
+        span.information #{tour.ratingsAverage} / 5
+
+
+
+mixin cardReview(review)
+    .review__details
+        .review__user
+            img(src=`/img/users/${review.user.photo}` alt='user photo')
+            .user__name= review.user.name
+        .review__review= review.review
+        .review__star
+            each index in [1,2,3,4,5]
+                i(class=`fa-regular fa-star ${review.rating >= index? 'active':'inactive'}`)
