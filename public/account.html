@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale-1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>account</title>
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Rethink+Sans:ital,wght@0,400..800;1,400..800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="alert alert--success">logged in successfully</div>
+    <!-- HEADER -->
+
+    <header class="header">
+      <nav class="header__nav">
+        <a class="nav__a nav__a--click" href="#">All Tours</a>
+      </nav>
+      <div class="header__logo">
+        <img src="./img/logo-white.png" alt="Natours logo" />
+      </div>
+      <nav class="header__nav nav">
+        <a href="#" class="header__login header__btn--click">LOG OUT</a>
+        <a href="#" class="user__details">
+          <img src="./img//users/user-1.jpg" alt="" />
+          <p class="name">kareem tarek</p>
+        </a>
+      </nav>
+    </header>
+    <!-- CONTENT -->
+    <div class="account_content">
+        <div class="content_details">
+            <div class="content_left">
+                <ul class="normal_user">
+                    <li class="active move"><a href="#" class="setting"><i class="fa-solid fa-gear"></i> SETTINGS</a></li>
+                    <li><a href="#" class="bookings"><i class="fa-solid fa-bag-shopping"></i> MY BOOKINGS</a></li>
+                    <li><a href="#" class="reviews"><i class="fa-regular fa-star"></i> MY REVIEWS</a></li>
+                    <li><a href="#" class="billing"><i class="fa-regular fa-credit-card"></i> BILLING</a></li>
+                </ul>
+                <p class="admin">ADMIN</p>
+                <ul class="admin_user">
+                    <li class="active move"><a href="#" class="manage"><i class="fa-regular fa-pen-to-square"></i> MANAGE TOURS</a></li>
+                    <li><a href="#" class="users"><i class="fa-regular fa-user"></i> MANAGE USERS</a></li>
+                    <li><a href="#" class="reviews"><i class="fa-regular fa-star"></i> MANAGE REVIEWS</a></li>
+                    <li><a href="#" class="bookings"><i class="fa-solid fa-bag-shopping"></i> MANAGE BOOKINGS</a></li>
+                </ul>
+            </div>
+            <div class="content_right">
+                <div class="right_details">
+                    <h1 class="account_heading">YOUR ACCOUNT SETTINGS</h1>
+                    <label for="name" class="name">Name</label>
+                    <input type="text" name="name" id="name">
+                    <br><br>
+                    <label for="email" class="email">Email</label>
+                    <input type="text" type="email" id="email">
+                    <div class="photo_control">
+                        <img src="/public/img/1.jpg" alt="uuser-photo">
+                        <input type="file" name="file" id="file">
+                        <label for="file">CHOOSE YOUR PHOTO</label>
+                    </div>
+                    <a href="#" class="settings">SAVE SETTINGS</a>
+                    <br><br><br><br><br>
+                </div>
+                <hr class="line">
+                <div class="password_change">
+                    <h1 class="password">CHANGE PASSWORD</h1>
+                    <label for="current_password" class="current_password">Current Password</label>
+                    <input type="password" name="current_password" id="current_password" placeholder="●●●●●●●●">
+                    <label for="new_pasword" class="new_password">New Password</label>
+                    <input type="password" name="new_pasword" id="new_pasword" placeholder="●●●●●●●●">
+                    <label for="confirm_password" class="confirm_password">Confirm Password</label>
+                    <input type="password" name="confirm_password" id="confirm_password" placeholder="●●●●●●●●">
+                    <a href="#" class="save_password">SAVE PASSWORD</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FOOTER -->
+
+    <footer class="footer">
+      <div class="footer__logo">
+        <img src="./img/favicon.png" alt="Natours logo" />
+        <p class="footer__text">NATOURS</p>
+      </div>
+      <ul>
+        <li class="ul--change"><a href="#">About us</a></li>
+        <li class="ul--change"><a href="#">Download apps</a></li>
+        <li class="ul--change"><a href="#">Becaome a guide</a></li>
+        <li class="ul--change"><a href="#">Careers</a></li>
+        <li class="ul--change"><a href="#">Contact</a></li>
+      </ul>
+      <p class="copyright">&copy; 2024 by kareem tarek</p>
+    </footer>
+  </body>
+</html>

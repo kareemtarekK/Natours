@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale-1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>LOGIN</title>
+  </head>
+  <body>
+    <!-- HEADER -->
+
+    <header class="header">
+      <nav class="header__nav">
+        <a class="nav__a nav__a--click" href="#">All Tours</a>
+      </nav>
+      <div class="header__logo">
+        <img src="./img/logo-white.png" alt="Natours logo" />
+      </div>
+      <nav class="header__nav nav">
+        <a href="#" class="header__login header__btn--click">LOG IN</a>
+        <a href="#" class="header__signup header__btn--click">SIGN UP</a>
+      </nav>
+    </header>
+    <!-- CONTENT -->
+    <div class="form">
+      <form class="form__content">
+        <div class="heading">Create your account!</div>
+        <div class="name">
+            <label for="name">Your name</label>
+            <input type="text" id="name" placeholder="your name" required>
+        </div>
+        <div class="email">
+          <label for="email">Email address</label>
+          <input
+            type="email"
+            placeholder="you@example.com"
+            id="email"
+            required
+          />
+        </div>
+        <div class="password">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            placeholder="●●●●●●●●"
+            id="password"
+            required
+            minlength="8"
+          />
+        </div>
+        <div class="confirmPassword">
+            <label for="confirm-password">Confirm password</label>
+            <input
+              type="password"
+              placeholder="●●●●●●●●"
+              id="confirm-password"
+              required
+              minlength="8"
+            />
+          </div>
+        <input type="submit" value="SIGNUP" />
+      </form>
+    </div>
+    <!-- FOOTER -->
+
+    <footer class="footer">
+        <div class="footer__logo">
+          <img src="./img/favicon.png" alt="Natours logo" />
+          <p class="footer__text">NATOURS</p>
+        </div>
+        <ul>
+          <li class="ul--change"><a href="#">About us</a></li>
+          <li class="ul--change"><a href="#">Download apps</a></li>
+          <li class="ul--change"><a href="#">Becaome a guide</a></li>
+          <li class="ul--change"><a href="#">Careers</a></li>
+          <li class="ul--change"><a href="#">Contact</a></li>
+        </ul>
+        <p class="copyright">&copy; 2024 by kareem tarek</p>
+      </footer>
+    <script>
+      const password = document.querySelector('#password');
+      const email = document.querySelector('input[type=email]');
+      const confirmPassword = document.querySelector('#confirm-password');
+      password.oninput = () => {
+        if (password.value.length >= 8) {
+          password.style.borderBottom = '3px solid #55c57a';
+        } else {
+          password.style.borderBottom = '3px solid orangered';
+        }
+      };
+      confirmPassword.oninput = ()=>{
+        if(confirmPassword.value.length >= 8){
+            confirmPassword.style.borderBottom = '3px solid #55c57a';
+        } else{
+            confirmPassword.style.borderBottom = '3px solid orangered';
+        }
+      }
+      email.oninput = ()=>{
+        let regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return regex.test(email.value)? email.style.borderBottom = '3px solid #55c57a' : email.style.borderBottom = '3px solid orangered'; 
+      }
+    </script>
+  </body>
+</html>
