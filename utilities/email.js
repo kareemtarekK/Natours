@@ -15,13 +15,12 @@ module.exports = class Email {
   newTransport() {
     if (process.env.NODE_ENV === 'production') {
       return nodemailer.createTransport({
-        host: 'smtp.mailgun.org',
-        port: 587,
+        service: 'Gmail',
         auth: {
-          user: process.env.MAILGUN_USER,
-          pass: process.env.MAILGUN_PASSWORD
-        }
-      })
+          user: process.env.Gmail_USER,
+          pass: process.env.GMAIL_PASSWORD,
+        },
+      });
     }
     return nodemailer.createTransport({
       host: process.env.EMAIL_HOST,

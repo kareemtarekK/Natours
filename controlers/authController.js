@@ -31,7 +31,7 @@ const createSendTokenAndResponse = (user, statusCode, res) => {
 
   // send token via cookie
   res.cookie('JWT', token, cookieOptions);
-  console.log(token)
+  console.log(token);
   res.status(statusCode).json({
     status: 'success',
     data: {
